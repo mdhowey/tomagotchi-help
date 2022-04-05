@@ -8,6 +8,10 @@ const $play = $('#play_btn');
 const $hunger = $('#hunger_value');
 const $sleepiness = $('#sleepiness_value');
 const $bordem = $('#bordem_value');
+const $age = $('#age_value');
+
+// Alive Variable
+let alive = true;
 
 // ==== Tomagotchi Class Definition ==== //
 class Tomagotchi {
@@ -26,6 +30,7 @@ class Tomagotchi {
     this.hunger++;
     this.bordem++;
     this.sleepiness++;
+    this.age++;
   }
 
   // increment the age of the Tomagotchi
@@ -52,18 +57,49 @@ let pikachu = new Tomagotchi('Pikachu');
 
 // ==== Button Event Listeners ==== //
 $feed.on('click', () => {
-  pikachu.feed();
-  $hunger.text(pikachu.hunger);
+  if (pikachu.hunger > 0 && alive === true) {
+    pikachu.feed();
+    $hunger.text(pikachu.hunger);
+  }
 });
 
 $rest.on('click', () => {
-  pikachu.rest();
-  $sleepiness.text(pikachu.sleepiness);
+  if (pikachu.sleepiness > 0 && alive === true) {
+    pikachu.rest();
+    $sleepiness.text(pikachu.sleepiness);
+  }
 });
 
 $play.on('click', () => {
-  pikachu.play();
-  $bordem.text(pikachu.bordem);
+  if (pikachu.bordem > 0 && alive === true) {
+    pikachu.play();
+    $bordem.text(pikachu.bordem);
+  }
 });
 
-// ==== Timers ==== //
+// ==== Game Timer ==== //
+function runGame() {
+  if (pikachu.hunger < 10 && pikachu.bordem < 10 && pikachu.sleepiness < 10) {
+    pikachu.gamePlay();
+    $hunger.text(pikachu.hunger);
+    $sleepiness.text(pikachu.sleepiness);
+    $bordem.text(pikachu.bordem);
+    $age.text(pikachu.age);
+    if (pikachu.age === 5) {
+      $hunger.text('You win!');
+      $sleepiness.text('You win!');
+      $bordem.text('You win!');
+      $age.text('You win!');
+      alive = false;
+      clearInterval(gameInterval);
+    }
+  } else if (pikachu.hunger === 10 || pikachu.bordem === 10 || pikachu.sleepiness === 10) {
+    $hunger.text('You lose!');
+    $sleepiness.text('You lose!');
+    $bordem.text('You lose!');
+    $age.text('You lose!');
+    alive = false;
+  } 
+}
+
+const gameInterval = setInterval(runGame, 1000);
