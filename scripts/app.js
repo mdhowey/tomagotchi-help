@@ -3,6 +3,7 @@
 const $feed = $('#feed_btn');
 const $rest = $('#rest_btn');
 const $play = $('#play_btn');
+const $reset = $('#reset_btn');
 
 //Metrics Values
 const $hunger = $('#hunger_value');
@@ -75,6 +76,10 @@ $play.on('click', () => {
     pikachu.play();
     $bordem.text(pikachu.bordem);
   }
+});
+
+$reset.on('click', () => {
+  
 });
 
 // ==== Game Timer ==== //
