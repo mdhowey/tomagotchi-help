@@ -13,42 +13,44 @@
 </head>
 
 <body>
+  <header>
+    <h1>Tomagotchi</h1>
+    <div class="start-reset">
+      <button class="tomagotchi-btn" id="start_btn">Start</button>
+      <button class="tomagotchi-btn" id="reset_btn">Reset</button>
+    </div>
+  </header>
   <main>
-    <section>
-      <div>
-        <h1>Tomagotchi</h1>
-        <div>
-          <div class="start-reset">
-            <button class="tomagotchi-btn" id="start_btn">Start</button>
-            <button class="tomagotchi-btn" id="reset_btn">Reset</button>
-          </div>
-          <div class="column">
-            <span class="metrics-text">Hunger</span>
-            <span class="metrics-value" id="hunger_value">0</span>
-          </div>
-          <div class="column">
-            <span class="metrics-text">Sleepiness</span>
-            <span class="metrics-value" id="sleepiness_value">0</span>
-          </div>
-          <div class="column">
-            <span class="metrics-text">Bordem</span>
-            <span class="metrics-value" id="bordem_value">0</span>
-          </div>
-          <div class="column">
-            <span class="metrics-text">Age</span>
-            <span class="metrics-value" id="age_value">0</span>
-          </div>
+    <p class="win" id="win_text"></p>
+    <div class="row">
+      <section>
+        <div class="column">
+          <span class="metrics-text">Hunger</span>
+          <span class="metrics-value" id="hunger_value">0</span>
         </div>
-      </div>
-    </section>
-    <section>
-      <div class="column button-column">
-        <button class="tomagotchi-btn" id="feed_btn">Feed</button>
-        <button class="tomagotchi-btn" id="rest_btn">Rest</button>
-        <button class="tomagotchi-btn" id="play_btn">Play</button>
-      </div>
-    </section>
+        <div class="column">
+          <span class="metrics-text">Sleepiness</span>
+          <span class="metrics-value" id="sleepiness_value">0</span>
+        </div>
+        <div class="column">
+          <span class="metrics-text">Bordem</span>
+          <span class="metrics-value" id="bordem_value">0</span>
+        </div>
+        <div class="column">
+          <span class="metrics-text">Age</span>
+          <span class="metrics-value" id="age_value">0</span>
+        </div>
+      </section>
+      <section>
+        <div class="column button-column">
+          <button class="tomagotchi-btn" id="feed_btn">Feed</button>
+          <button class="tomagotchi-btn" id="rest_btn">Rest</button>
+          <button class="tomagotchi-btn" id="play_btn">Play</button>
+        </div>
+      </section>
+    </div>
   </main>
+  <footer></footer>
 </body>
 
 </html>

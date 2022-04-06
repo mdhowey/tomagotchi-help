@@ -3,6 +3,7 @@
 const $feed = $('#feed_btn');
 const $rest = $('#rest_btn');
 const $play = $('#play_btn');
+const $start = $('#start_btn')
 const $reset = $('#reset_btn');
 
 //Metrics Values
@@ -10,6 +11,7 @@ const $hunger = $('#hunger_value');
 const $sleepiness = $('#sleepiness_value');
 const $bordem = $('#bordem_value');
 const $age = $('#age_value');
+const $winText = $('#win_text');
 
 // Alive Variable
 let alive = true;
@@ -78,11 +80,20 @@ $play.on('click', () => {
   }
 });
 
-$reset.on('click', () => {
+$start.on('click', () => {
   
 });
 
+$reset.on('click', () => {
+  pikachu.hunger = -1;
+  pikachu.bordem = -1;
+  pikachu.sleepiness = -1;
+  pikachu.age = -1;
+});
+
 // ==== Game Timer ==== //
+const gameInterval = setInterval(runGame, 1000);
+
 function runGame() {
   if (pikachu.hunger < 10 && pikachu.bordem < 10 && pikachu.sleepiness < 10) {
     pikachu.gamePlay();
@@ -90,12 +101,13 @@ function runGame() {
     $sleepiness.text(pikachu.sleepiness);
     $bordem.text(pikachu.bordem);
     $age.text(pikachu.age);
-    if (pikachu.age === 5) {
-      $hunger.text('You win!');
-      $sleepiness.text('You win!');
-      $bordem.text('You win!');
-      $age.text('You win!');
+    if (pikachu.age === 15) {
+      $hunger.empty();
+      $sleepiness.empty();
+      $bordem.empty();
+      $age.empty();
       alive = false;
+      $winText.text('You won the best game ever!')
       clearInterval(gameInterval);
     }
   } else if (pikachu.hunger === 10 || pikachu.bordem === 10 || pikachu.sleepiness === 10) {
@@ -104,7 +116,5 @@ function runGame() {
     $bordem.text('You lose!');
     $age.text('You lose!');
     alive = false;
-  } 
+  }
 }
-
-const gameInterval = setInterval(runGame, 1000);

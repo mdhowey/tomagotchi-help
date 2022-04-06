@@ -10,20 +10,22 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-h1 {
-  color: darkslategray;
-  font-size: 36px;
-  text-align: center;
-}
-
 main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  flex-direction: column;
+  height: 80vh;
+  background-color: lightseagreen;
 }
 
 /* Utilities */
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .column {
   display: flex;
@@ -35,6 +37,7 @@ main {
 .button-column {
   background-color: lightblue;
   border-radius: 5px;
+  margin-left: 50px;
 }
 
 button {
@@ -45,6 +48,7 @@ button {
   color: darkslategray;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
+  font-weight: bold;
 }
 
 button:hover {
@@ -55,6 +59,20 @@ button:hover {
 button:active {
   background-color: green;
   color: white;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+h1 {
+  color: darkslategray;
+  font-size: 36px;
+  text-align: center;
 }
 
 /* Start Reset */
@@ -75,6 +93,7 @@ button:active {
 #reset_btn {
   background-color: lightcoral;
   color: white;
+  margin-left: 15px;
 }
 
 #reset_btn:hover {
@@ -84,12 +103,17 @@ button:active {
 
 
 /* Metrics */
+.win {
+  margin-bottom: 30px;
+}
+
 .metrics-text {
   font-size: 24px;
   margin-bottom: 10px;
 }
 
-.metrics-value {
+.metrics-value,
+.win {
   font-size: 28px;
   font-weight: bold;
 }
